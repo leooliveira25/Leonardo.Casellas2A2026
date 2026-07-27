@@ -1,110 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&display=swap');
+ 
+:root {
+    --parchment: #e8dcb8;
+    --parchment-dark: #d8c89a;
+    --ink: #2b1d0e;
+    --ink-soft: #3b2617;
+    --wood: #5c3b22;
+    --wood-dark: #2b1d0e;
+    --gold: #c9a227;
+    --gold-bright: #e0bb3f;
+    --sea: #1b3a4b;
+}
+ 
+* {
+    box-sizing: border-box;
+}
+ 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5e6c8;
-    color: #2b1d0e;
-    background-image: linear-gradient(
-        rgba(245, 230, 200, 0.95),
-        rgba(245, 230, 200, 0.95)
-    ),
-    url("https://images.unsplash.com/photo-1518546305927-5a555bb7020d");
-    background-size: cover;
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 1.15rem;
+    background-color: var(--parchment);
+    color: var(--ink);
+    background-image:
+        radial-gradient(ellipse at 15% 20%, rgba(92, 59, 34, 0.08), transparent 40%),
+        radial-gradient(ellipse at 85% 60%, rgba(92, 59, 34, 0.1), transparent 45%),
+        radial-gradient(ellipse at 50% 90%, rgba(43, 29, 14, 0.06), transparent 50%),
+        linear-gradient(var(--parchment), var(--parchment));
     background-attachment: fixed;
 }
-
+ 
+/* ---------- Cabeçalho ---------- */
+ 
 header {
-    background: linear-gradient(135deg, #3b2617, #5c3b22);
-    color: #f8e7b9;
+    position: relative;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.08) 0px,
+            transparent 2px,
+            transparent 8px
+        ),
+        linear-gradient(160deg, var(--wood-dark), var(--wood) 60%, var(--ink-soft));
+    color: var(--parchment);
     text-align: center;
-    padding: 40px 20px;
-    border-bottom: 4px solid #d4af37;
+    padding: 50px 20px 40px;
+    border-bottom: 6px double var(--gold);
+    overflow: hidden;
 }
-
+ 
+header .compass {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 14px;
+    animation: spin 40s linear infinite;
+}
+ 
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+ 
 header h1 {
     margin: 0;
-    font-size: 3rem;
-    letter-spacing: 3px;
+    font-family: 'Pirata One', 'IM Fell English', serif;
+    font-size: 3.4rem;
+    letter-spacing: 4px;
+    color: var(--gold-bright);
+    text-shadow: 0 2px 0 rgba(0,0,0,0.5), 0 0 25px rgba(224, 187, 63, 0.25);
 }
-
+ 
 header p {
-    margin-top: 10px;
-    font-size: 1.1rem;
+    margin: 12px auto 0;
+    max-width: 520px;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #e9d9ab;
+    opacity: 0.9;
 }
-
+ 
+/* ---------- Navegação ---------- */
+ 
 nav {
-    background-color: #2b1d0e;
+    background-color: var(--wood-dark);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
-    padding: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    gap: 30px;
+    padding: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+    border-bottom: 2px solid var(--gold);
 }
-
+ 
 nav a {
-    color: #f8e7b9;
+    position: relative;
+    color: #e9d9ab;
     text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+    font-family: 'Pirata One', serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    padding-bottom: 4px;
 }
-
+ 
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--gold-bright);
+    transition: width 0.3s ease;
+}
+ 
 nav a:hover {
-    color: #d4af37;
+    color: var(--gold-bright);
 }
-
+ 
+nav a:hover::after {
+    width: 100%;
+}
+ 
+/* ---------- Conteúdo Principal ---------- */
+ 
 main {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: rgba(255, 248, 220, 0.92);
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    line-height: 1.8;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 10px 30px;
 }
-
+ 
+section {
+    background-color: rgba(255, 250, 230, 0.55);
+    border: 1px solid rgba(92, 59, 34, 0.25);
+    border-radius: 160px 12px 160px 12px / 12px 160px 12px 160px;
+    padding: 35px 40px;
+    margin-bottom: 45px;
+    box-shadow: 0 8px 24px rgba(43, 29, 14, 0.15);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+ 
+section.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+ 
 main h2 {
-    color: #5c3b22;
-    border-left: 6px solid #d4af37;
-    padding-left: 10px;
+    font-family: 'Pirata One', serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: var(--wood);
+    border-left: 6px solid var(--gold);
+    padding-left: 14px;
+    margin-top: 0;
 }
-
+ 
 main p {
     text-align: justify;
+    margin: 0 0 16px;
 }
-
+ 
+main p:last-child {
+    margin-bottom: 0;
+}
+ 
+/* ---------- Imagens estilo álbum antigo ---------- */
+ 
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto 20px;
-    border-radius: 10px;
+    margin: 10px auto 24px;
+    padding: 10px 10px 26px;
+    background: #f7f0dc;
+    border: 1px solid #cbb98a;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    filter: sepia(35%) contrast(1.02);
+    transform: rotate(-1.5deg);
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
-
+ 
+section:nth-of-type(2n) img {
+    transform: rotate(1.5deg);
+}
+ 
+img:hover {
+    transform: rotate(0deg) scale(1.02);
+    filter: sepia(10%) contrast(1.05);
+}
+ 
+/* ---------- Rodapé ---------- */
+ 
 footer {
-    background-color: #2b1d0e;
-    color: #f8e7b9;
+    position: relative;
+    background-color: var(--wood-dark);
+    color: #e9d9ab;
     text-align: center;
-    padding: 20px;
+    padding: 24px 20px;
     margin-top: 40px;
-    border-top: 4px solid #d4af37;
+    border-top: 6px double var(--gold);
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
 }
-
-/* Ajustes para telas menores */
+ 
+/* ---------- Telas menores ---------- */
+ 
 @media (max-width: 600px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
-
+ 
     header p {
         font-size: 1rem;
     }
-
-    main {
-        padding: 15px;
-        margin: 20px 10px;
+ 
+    section {
+        padding: 22px 20px;
+        border-radius: 60px 10px 60px 10px / 10px 60px 10px 60px;
     }
-
+ 
+    main {
+        padding: 0 12px;
+        margin: 30px auto;
+    }
+ 
     nav {
-        gap: 15px;
+        gap: 16px;
     }
 }
+ 
+/* ---------- Acessibilidade ---------- */
+ 
+@media (prefers-reduced-motion: reduce) {
+    header .compass {
+        animation: none;
+    }
+    section {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+ 
+a:focus-visible, nav a:focus-visible {
+    outline: 2px solid var(--gold-bright);
+    outline-offset: 3px;
+}
+ 

@@ -10,6 +10,10 @@
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.ico">
  
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,6 +21,23 @@
  
     <!-- Cabeçalho -->
     <header>
+        <svg class="compass" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#c9a227" stroke-width="0.75"/>
+            <g fill="#e0bb3f">
+                <polygon points="50,6 56,50 50,44 44,50"/>
+                <polygon points="50,94 56,50 50,56 44,50"/>
+                <polygon points="6,50 50,44 44,50 50,56"/>
+                <polygon points="94,50 50,44 56,50 50,56"/>
+            </g>
+            <g fill="#e9d9ab" opacity="0.8">
+                <polygon points="22,22 48,44 44,48"/>
+                <polygon points="78,78 52,56 56,52"/>
+                <polygon points="78,22 56,48 52,44"/>
+                <polygon points="22,78 44,52 48,56"/>
+            </g>
+            <circle cx="50" cy="50" r="4" fill="#c9a227"/>
+        </svg>
         <h1>🏴‍☠️ Piratas e Pirataria</h1>
         <p>Conheça a história, os mistérios e as aventuras dos navegadores mais temidos dos mares.</p>
     </header>
@@ -171,9 +192,24 @@
     <!-- Rodapé -->
     <footer>
         <p>
-            Trabalho Escolar - Piratas e Pirataria | Desenvolvido por Leonardo Casellas
+            Trabalho Escolar - Piratas e Pirataria | Desenvolvido por Leo Oliveira
         </p>
     </footer>
+ 
+    <!-- Revela as seções suavemente ao rolar a página -->
+    <script>
+        const secoes = document.querySelectorAll('main section');
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach((entrada) => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add('visivel');
+                    observador.unobserve(entrada.target);
+                }
+            });
+        }, { threshold: 0.15 });
+ 
+        secoes.forEach((secao) => observador.observe(secao));
+    </script>
  
 </body>
 </html>
