@@ -34,6 +34,7 @@ header p {
 nav {
     background-color: #2b1d0e;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
     padding: 15px;
@@ -71,6 +72,14 @@ main p {
     text-align: justify;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+}
+
 footer {
     background-color: #2b1d0e;
     color: #f8e7b9;
@@ -78,4 +87,24 @@ footer {
     padding: 20px;
     margin-top: 40px;
     border-top: 4px solid #d4af37;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 15px;
+        margin: 20px 10px;
+    }
+
+    nav {
+        gap: 15px;
+    }
 }
