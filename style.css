@@ -1,250 +1,541 @@
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&display=swap');
- 
+/* =========================================================
+   PIRATAS E PIRATARIA — folha de estilo
+   Paleta: abismo (fundo), pergaminho (cartões), ouro e ferrugem
+   Tipografia: Pirata One (display) + IM Fell English (corpo)
+   ========================================================= */
+
 :root {
-    --parchment: #e8dcb8;
-    --parchment-dark: #d8c89a;
-    --ink: #2b1d0e;
-    --ink-soft: #3b2617;
-    --wood: #5c3b22;
-    --wood-dark: #2b1d0e;
-    --gold: #c9a227;
-    --gold-bright: #e0bb3f;
-    --sea: #1b3a4b;
+  --abyss: #071b20;
+  --abyss-deep: #041216;
+  --ocean: #0e3641;
+  --ocean-light: #164a56;
+  --parchment: #f1e4bf;
+  --parchment-shadow: #dcc78f;
+  --parchment-line: #c9ac6e;
+  --ink: #2c2013;
+  --ink-soft: #4a3a24;
+  --gold: #c9a227;
+  --gold-bright: #e8c95a;
+  --rust: #8a3324;
+  --rust-bright: #b34a34;
+
+  --font-display: "Pirata One", "Copperplate", serif;
+  --font-body: "IM Fell English", Georgia, serif;
+
+  --radius: 4px;
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
 }
- 
-* {
-    box-sizing: border-box;
-}
- 
-body {
-    margin: 0;
-    font-family: 'IM Fell English', Georgia, serif;
-    font-size: 1.15rem;
-    background-color: var(--parchment);
-    color: var(--ink);
-    background-image:
-        radial-gradient(ellipse at 15% 20%, rgba(92, 59, 34, 0.08), transparent 40%),
-        radial-gradient(ellipse at 85% 60%, rgba(92, 59, 34, 0.1), transparent 45%),
-        radial-gradient(ellipse at 50% 90%, rgba(43, 29, 14, 0.06), transparent 50%),
-        linear-gradient(var(--parchment), var(--parchment));
-    background-attachment: fixed;
-}
- 
-/* ---------- Cabeçalho ---------- */
- 
-header {
-    position: relative;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            rgba(0,0,0,0.08) 0px,
-            transparent 2px,
-            transparent 8px
-        ),
-        linear-gradient(160deg, var(--wood-dark), var(--wood) 60%, var(--ink-soft));
-    color: var(--parchment);
-    text-align: center;
-    padding: 50px 20px 40px;
-    border-bottom: 6px double var(--gold);
-    overflow: hidden;
-}
- 
-header .compass {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 14px;
-    animation: spin 40s linear infinite;
-}
- 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
- 
-header h1 {
-    margin: 0;
-    font-family: 'Pirata One', 'IM Fell English', serif;
-    font-size: 3.4rem;
-    letter-spacing: 4px;
-    color: var(--gold-bright);
-    text-shadow: 0 2px 0 rgba(0,0,0,0.5), 0 0 25px rgba(224, 187, 63, 0.25);
-}
- 
-header p {
-    margin: 12px auto 0;
-    max-width: 520px;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #e9d9ab;
-    opacity: 0.9;
-}
- 
-/* ---------- Navegação ---------- */
- 
-nav {
-    background-color: var(--wood-dark);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 14px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.35);
-    border-bottom: 2px solid var(--gold);
-}
- 
-nav a {
-    position: relative;
-    color: #e9d9ab;
-    text-decoration: none;
-    font-family: 'Pirata One', serif;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    padding-bottom: 4px;
-}
- 
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--gold-bright);
-    transition: width 0.3s ease;
-}
- 
-nav a:hover {
-    color: var(--gold-bright);
-}
- 
-nav a:hover::after {
-    width: 100%;
-}
- 
-/* ---------- Conteúdo Principal ---------- */
- 
-main {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 10px 30px;
-}
- 
-section {
-    background-color: rgba(255, 250, 230, 0.55);
-    border: 1px solid rgba(92, 59, 34, 0.25);
-    border-radius: 160px 12px 160px 12px / 12px 160px 12px 160px;
-    padding: 35px 40px;
-    margin-bottom: 45px;
-    box-shadow: 0 8px 24px rgba(43, 29, 14, 0.15);
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
- 
-section.visivel {
-    opacity: 1;
-    transform: translateY(0);
-}
- 
-main h2 {
-    font-family: 'Pirata One', serif;
-    font-size: 2rem;
-    letter-spacing: 1px;
-    color: var(--wood);
-    border-left: 6px solid var(--gold);
-    padding-left: 14px;
-    margin-top: 0;
-}
- 
-main p {
-    text-align: justify;
-    margin: 0 0 16px;
-}
- 
-main p:last-child {
-    margin-bottom: 0;
-}
- 
-/* ---------- Imagens estilo álbum antigo ---------- */
- 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 10px auto 24px;
-    padding: 10px 10px 26px;
-    background: #f7f0dc;
-    border: 1px solid #cbb98a;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-    filter: sepia(35%) contrast(1.02);
-    transform: rotate(-1.5deg);
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
- 
-section:nth-of-type(2n) img {
-    transform: rotate(1.5deg);
-}
- 
-img:hover {
-    transform: rotate(0deg) scale(1.02);
-    filter: sepia(10%) contrast(1.05);
-}
- 
-/* ---------- Rodapé ---------- */
- 
-footer {
-    position: relative;
-    background-color: var(--wood-dark);
-    color: #e9d9ab;
-    text-align: center;
-    padding: 24px 20px;
-    margin-top: 40px;
-    border-top: 6px double var(--gold);
-    font-family: 'IM Fell English', serif;
-    font-style: italic;
-}
- 
-/* ---------- Telas menores ---------- */
- 
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
- 
-    header p {
-        font-size: 1rem;
-    }
- 
-    section {
-        padding: 22px 20px;
-        border-radius: 60px 10px 60px 10px / 10px 60px 10px 60px;
-    }
- 
-    main {
-        padding: 0 12px;
-        margin: 30px auto;
-    }
- 
-    nav {
-        gap: 16px;
-    }
-}
- 
-/* ---------- Acessibilidade ---------- */
- 
+
 @media (prefers-reduced-motion: reduce) {
-    header .compass {
-        animation: none;
-    }
-    section {
-        transition: none;
-        opacity: 1;
-        transform: none;
-    }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
 }
- 
-a:focus-visible, nav a:focus-visible {
-    outline: 2px solid var(--gold-bright);
-    outline-offset: 3px;
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(233, 201, 90, 0.08), transparent 45%),
+    radial-gradient(ellipse at 90% 10%, rgba(233, 201, 90, 0.05), transparent 40%),
+    linear-gradient(180deg, var(--abyss) 0%, var(--abyss-deep) 100%);
+  color: var(--parchment);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+  min-height: 100vh;
 }
- 
+
+/* subtle drifting caustic light, ambient only */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(233,201,90,0.35) 0, transparent 60%),
+    radial-gradient(1px 1px at 80% 60%, rgba(233,201,90,0.25) 0, transparent 60%),
+    radial-gradient(1px 1px at 40% 80%, rgba(233,201,90,0.2) 0, transparent 60%),
+    radial-gradient(1px 1px at 65% 15%, rgba(233,201,90,0.3) 0, transparent 60%);
+  animation: drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(24px); }
+}
+
+a { color: inherit; }
+
+/* ---------- Cabeçalho ---------- */
+
+header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 4.5rem 1.5rem 3rem;
+}
+
+.compass {
+  width: 84px;
+  height: 84px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(201, 162, 39, 0.35));
+  animation: sway 9s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin: 0 0 0.6rem;
+  color: var(--gold-bright);
+  text-shadow: 0 2px 0 rgba(0,0,0,0.4), 0 0 30px rgba(201,162,39,0.25);
+  letter-spacing: 0.02em;
+}
+
+header p {
+  max-width: 42ch;
+  margin: 0 auto;
+  color: var(--parchment-shadow);
+  font-style: italic;
+  font-size: 1.15rem;
+}
+
+/* ---------- Navegação: a rota da viagem ---------- */
+
+nav.voyage {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, var(--ocean) 0%, rgba(14,54,65,0.96) 80%, transparent 100%);
+  backdrop-filter: blur(6px);
+  padding: 1.1rem 1rem 1.6rem;
+  border-bottom: 1px solid rgba(201,162,39,0.25);
+}
+
+.route-wrap {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.route-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0;
+  border-top: 2px dashed rgba(201,162,39,0.4);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.ship-marker {
+  position: absolute;
+  top: 50%;
+  font-size: 1.4rem;
+  transform: translate(-50%, -60%) scaleX(1);
+  transition: left 0.6s var(--ease);
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  pointer-events: none;
+}
+
+.stops {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.stop {
+  appearance: none;
+  border: none;
+  background: none;
+  color: var(--parchment-shadow);
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius);
+  transition: color 0.25s var(--ease);
+  flex: 1;
+  min-width: 0;
+}
+
+.stop:hover { color: var(--gold-bright); }
+
+.stop:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.stop-flag {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--abyss-deep);
+  border: 2px solid var(--parchment-line);
+  font-size: 1rem;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.stop-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stop[aria-selected="true"] {
+  color: var(--gold-bright);
+}
+
+.stop[aria-selected="true"] .stop-flag {
+  background: var(--gold);
+  border-color: var(--gold-bright);
+  color: var(--abyss-deep);
+  transform: scale(1.1);
+  box-shadow: 0 0 14px rgba(232,201,90,0.55);
+}
+
+/* ---------- Conteúdo principal ---------- */
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+}
+
+.panel {
+  background: var(--parchment);
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 2.75rem 2.25rem 2.5rem;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.4), inset 0 0 60px rgba(140, 110, 40, 0.08);
+  position: relative;
+  animation: unfurl 0.5s var(--ease);
+}
+
+.panel[hidden] { display: none; }
+
+@keyframes unfurl {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* torn-paper edges */
+.panel::before,
+.panel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image:
+    linear-gradient(135deg, var(--abyss-deep) 6px, transparent 6px),
+    linear-gradient(-135deg, var(--abyss-deep) 6px, transparent 6px);
+  background-size: 16px 16px;
+  background-repeat: repeat-x;
+}
+.panel::before { top: -9px; background-position: top left; transform: scaleY(-1); }
+.panel::after { bottom: -9px; background-position: bottom left; }
+
+.panel h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.4vw, 2.2rem);
+  color: var(--rust);
+  margin-top: 0;
+  border-bottom: 1px solid var(--parchment-line);
+  padding-bottom: 0.6rem;
+}
+
+.panel img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 3px;
+  display: block;
+  margin: 1.25rem 0 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  border: 1px solid var(--parchment-line);
+}
+
+.panel p {
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+}
+
+.panel p:last-of-type { margin-bottom: 1.6rem; }
+
+/* ---------- Bloco "Você sabia?" (diário de bordo) ---------- */
+
+.log {
+  margin-top: 1.5rem;
+  border-top: 1px dashed var(--parchment-line);
+  padding-top: 1.25rem;
+}
+
+.log-note {
+  appearance: none;
+  cursor: pointer;
+  background: var(--abyss);
+  color: var(--gold-bright);
+  border: 1px solid var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s var(--ease);
+}
+
+.log-note:hover { background: var(--ocean); }
+.log-note:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+
+.log-fact {
+  margin-top: 0.9rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s var(--ease), opacity 0.4s var(--ease);
+  background: rgba(138, 51, 36, 0.08);
+  border-left: 3px solid var(--rust);
+  border-radius: 0 3px 3px 0;
+}
+
+.log-fact.open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.log-fact p {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* ---------- Cartões de ração (Vida a Bordo) ---------- */
+
+.rations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 0.5rem;
+  perspective: 1200px;
+}
+
+.ration-card {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  height: 150px;
+  background: none;
+  padding: 0;
+  font-family: var(--font-body);
+}
+
+.ration-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s var(--ease);
+  transform-style: preserve-3d;
+}
+
+.ration-card.flipped .ration-inner { transform: rotateY(180deg); }
+
+.ration-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.ration-front {
+  background: var(--ocean);
+  color: var(--gold-bright);
+  border: 1px solid var(--gold);
+}
+
+.ration-front .ration-icon { font-size: 1.9rem; }
+
+.ration-back {
+  background: var(--rust);
+  color: var(--parchment);
+  transform: rotateY(180deg);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.ration-card:focus-visible .ration-face { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+
+/* ---------- Galeria de armas ---------- */
+
+.armory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.75rem 0 1rem;
+}
+
+.weapon-btn {
+  appearance: none;
+  cursor: pointer;
+  background: var(--abyss);
+  border: 1px solid var(--parchment-line);
+  border-radius: var(--radius);
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.weapon-btn svg { width: 30px; height: 30px; stroke: var(--gold-bright); fill: none; }
+
+.weapon-btn:hover { transform: translateY(-3px); border-color: var(--gold); }
+
+.weapon-btn[aria-pressed="true"] {
+  background: var(--rust);
+  border-color: var(--rust-bright);
+}
+
+.weapon-btn:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+
+.weapon-detail {
+  min-height: 3.4em;
+  background: rgba(138, 51, 36, 0.08);
+  border-left: 3px solid var(--rust);
+  border-radius: 0 3px 3px 0;
+  padding: 0.9rem 1rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* ---------- Mapa do tesouro ---------- */
+
+.map {
+  margin-top: 1.75rem;
+  position: relative;
+  background: var(--parchment-shadow);
+  border: 1px dashed var(--ink-soft);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.map p.map-hint {
+  margin: 0 0 1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.dig-spot {
+  appearance: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 2.4rem;
+  line-height: 1;
+  padding: 0.5rem;
+  color: var(--rust);
+  transition: transform 0.2s var(--ease);
+  animation: pulse-x 1.8s ease-in-out infinite;
+}
+
+.dig-spot:hover { transform: scale(1.15); }
+.dig-spot:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
+.dig-spot.found { animation: none; }
+
+@keyframes pulse-x {
+  0%, 100% { text-shadow: 0 0 0 rgba(138,51,36,0); }
+  50% { text-shadow: 0 0 14px rgba(138,51,36,0.55); }
+}
+
+.treasure-reveal {
+  margin-top: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s var(--ease), opacity 0.5s var(--ease);
+}
+
+.treasure-reveal.open {
+  max-height: 220px;
+  opacity: 1;
+}
+
+.treasure-reveal .chest {
+  font-size: 2.6rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  animation: bounce-in 0.5s var(--ease);
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.4); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.treasure-reveal p {
+  margin: 0;
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* ---------- Rodapé ---------- */
+
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2.5rem 1rem 3rem;
+  color: var(--parchment-shadow);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(201,162,39,0.2);
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 640px) {
+  .stop-label { display: none; }
+  .route-line { display: none; }
+  .ship-marker { display: none; }
+  .stops { justify-content: center; gap: 1.25rem; }
+  .panel { padding: 2rem 1.25rem 2rem; }
+  main { padding-top: 2rem; }
+}
