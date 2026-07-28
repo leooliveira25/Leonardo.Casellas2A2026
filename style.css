@@ -5,19 +5,19 @@
    ========================================================= */
 
 :root {
-  --abyss: #071b20;
-  --abyss-deep: #041216;
-  --ocean: #0e3641;
-  --ocean-light: #164a56;
-  --parchment: #f1e4bf;
-  --parchment-shadow: #dcc78f;
-  --parchment-line: #c9ac6e;
-  --ink: #2c2013;
-  --ink-soft: #4a3a24;
-  --gold: #c9a227;
-  --gold-bright: #e8c95a;
-  --rust: #8a3324;
-  --rust-bright: #b34a34;
+  --abyss: #0d232b;
+  --abyss-deep: #071319;
+  --ocean: #16363f;
+  --ocean-light: #204a52;
+  --parchment: #e8dcbd;
+  --parchment-shadow: #cdb98a;
+  --parchment-line: #a68c5c;
+  --ink: #2b2317;
+  --ink-soft: #4a3d29;
+  --gold: #af8a45;
+  --gold-bright: #cba762;
+  --rust: #6e4536;
+  --rust-bright: #8a5d49;
 
   --font-display: "Pirata One", "Copperplate", serif;
   --font-body: "IM Fell English", Georgia, serif;
@@ -37,8 +37,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background:
-    radial-gradient(ellipse at 20% -10%, rgba(233, 201, 90, 0.08), transparent 45%),
-    radial-gradient(ellipse at 90% 10%, rgba(233, 201, 90, 0.05), transparent 40%),
+    radial-gradient(ellipse at 20% -10%, rgba(203, 167, 98, 0.08), transparent 45%),
+    radial-gradient(ellipse at 90% 10%, rgba(203, 167, 98, 0.05), transparent 40%),
     linear-gradient(180deg, var(--abyss) 0%, var(--abyss-deep) 100%);
   color: var(--parchment);
   font-family: var(--font-body);
@@ -55,10 +55,10 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(233,201,90,0.35) 0, transparent 60%),
-    radial-gradient(1px 1px at 80% 60%, rgba(233,201,90,0.25) 0, transparent 60%),
-    radial-gradient(1px 1px at 40% 80%, rgba(233,201,90,0.2) 0, transparent 60%),
-    radial-gradient(1px 1px at 65% 15%, rgba(233,201,90,0.3) 0, transparent 60%);
+    radial-gradient(1px 1px at 10% 20%, rgba(203,167,98,0.35) 0, transparent 60%),
+    radial-gradient(1px 1px at 80% 60%, rgba(203,167,98,0.25) 0, transparent 60%),
+    radial-gradient(1px 1px at 40% 80%, rgba(203,167,98,0.2) 0, transparent 60%),
+    radial-gradient(1px 1px at 65% 15%, rgba(203,167,98,0.3) 0, transparent 60%);
   animation: drift 26s ease-in-out infinite alternate;
 }
 
@@ -82,7 +82,7 @@ header {
   width: 84px;
   height: 84px;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 0 10px rgba(201, 162, 39, 0.35));
+  filter: drop-shadow(0 0 10px rgba(175, 138, 69, 0.35));
   animation: sway 9s ease-in-out infinite;
   transform-origin: center;
 }
@@ -98,7 +98,7 @@ header h1 {
   font-size: clamp(2.4rem, 6vw, 4rem);
   margin: 0 0 0.6rem;
   color: var(--gold-bright);
-  text-shadow: 0 2px 0 rgba(0,0,0,0.4), 0 0 30px rgba(201,162,39,0.25);
+  text-shadow: 0 2px 0 rgba(0,0,0,0.4), 0 0 30px rgba(175,138,69,0.25);
   letter-spacing: 0.02em;
 }
 
@@ -119,7 +119,7 @@ nav.voyage {
   background: linear-gradient(180deg, var(--ocean) 0%, rgba(14,54,65,0.96) 80%, transparent 100%);
   backdrop-filter: blur(6px);
   padding: 1.1rem 1rem 1.6rem;
-  border-bottom: 1px solid rgba(201,162,39,0.25);
+  border-bottom: 1px solid rgba(175,138,69,0.25);
 }
 
 .route-wrap {
@@ -134,7 +134,7 @@ nav.voyage {
   right: 0;
   top: 50%;
   height: 0;
-  border-top: 2px dashed rgba(201,162,39,0.4);
+  border-top: 2px dashed rgba(175,138,69,0.4);
   transform: translateY(-50%);
   z-index: 0;
 }
@@ -215,7 +215,7 @@ nav.voyage {
   border-color: var(--gold-bright);
   color: var(--abyss-deep);
   transform: scale(1.1);
-  box-shadow: 0 0 14px rgba(232,201,90,0.55);
+  box-shadow: 0 0 14px rgba(203,167,98,0.55);
 }
 
 /* ---------- Conteúdo principal ---------- */
@@ -233,7 +233,7 @@ main {
   color: var(--ink);
   border-radius: var(--radius);
   padding: 2.75rem 2.25rem 2.5rem;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.4), inset 0 0 60px rgba(140, 110, 40, 0.08);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.4), inset 0 0 60px rgba(175, 138, 69, 0.08);
   position: relative;
   animation: unfurl 0.5s var(--ease);
 }
@@ -323,7 +323,7 @@ main {
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.4s var(--ease), opacity 0.4s var(--ease);
-  background: rgba(138, 51, 36, 0.08);
+  background: rgba(110, 69, 54, 0.08);
   border-left: 3px solid var(--rust);
   border-radius: 0 3px 3px 0;
 }
@@ -437,7 +437,7 @@ main {
 
 .weapon-detail {
   min-height: 3.4em;
-  background: rgba(138, 51, 36, 0.08);
+  background: rgba(110, 69, 54, 0.08);
   border-left: 3px solid var(--rust);
   border-radius: 0 3px 3px 0;
   padding: 0.9rem 1rem;
@@ -481,8 +481,8 @@ main {
 .dig-spot.found { animation: none; }
 
 @keyframes pulse-x {
-  0%, 100% { text-shadow: 0 0 0 rgba(138,51,36,0); }
-  50% { text-shadow: 0 0 14px rgba(138,51,36,0.55); }
+  0%, 100% { text-shadow: 0 0 0 rgba(110,69,54,0); }
+  50% { text-shadow: 0 0 14px rgba(110,69,54,0.55); }
 }
 
 .treasure-reveal {
@@ -526,7 +526,7 @@ footer {
   padding: 2.5rem 1rem 3rem;
   color: var(--parchment-shadow);
   font-size: 0.9rem;
-  border-top: 1px solid rgba(201,162,39,0.2);
+  border-top: 1px solid rgba(175,138,69,0.2);
 }
 
 /* ---------- Responsivo ---------- */
