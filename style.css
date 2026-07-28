@@ -1,23 +1,23 @@
 /* =========================================================
    PIRATAS E PIRATARIA — folha de estilo
-   Paleta: abismo (fundo), pergaminho (cartões), ouro e ferrugem
+   Paleta: papel envelhecido, tinta sépia, latão e mapa antigo
    Tipografia: Pirata One (display) + IM Fell English (corpo)
    ========================================================= */
 
 :root {
-  --abyss: #0d232b;
-  --abyss-deep: #071319;
-  --ocean: #16363f;
-  --ocean-light: #204a52;
-  --parchment: #e8dcbd;
-  --parchment-shadow: #cdb98a;
-  --parchment-line: #a68c5c;
-  --ink: #2b2317;
-  --ink-soft: #4a3d29;
-  --gold: #af8a45;
-  --gold-bright: #cba762;
-  --rust: #6e4536;
-  --rust-bright: #8a5d49;
+  --paper: #e6d8b3;
+  --paper-light: #f2e7c9;
+  --paper-dark: #d5c090;
+  --paper-stain: #b99e68;
+  --ink: #3a2c1a;
+  --ink-soft: #5c4a30;
+  --line: #8a6d3f;
+  --brass: #93712f;
+  --brass-bright: #b3893f;
+  --sea: #435f56;
+  --sea-deep: #30453e;
+  --wax: #7a3b2c;
+  --wax-bright: #965041;
 
   --font-display: "Pirata One", "Copperplate", serif;
   --font-body: "IM Fell English", Georgia, serif;
@@ -37,37 +37,44 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background:
-    radial-gradient(ellipse at 20% -10%, rgba(203, 167, 98, 0.08), transparent 45%),
-    radial-gradient(ellipse at 90% 10%, rgba(203, 167, 98, 0.05), transparent 40%),
-    linear-gradient(180deg, var(--abyss) 0%, var(--abyss-deep) 100%);
-  color: var(--parchment);
+    radial-gradient(ellipse at 15% 10%, rgba(185, 158, 104, 0.35), transparent 40%),
+    radial-gradient(ellipse at 85% 25%, rgba(185, 158, 104, 0.28), transparent 45%),
+    radial-gradient(ellipse at 30% 90%, rgba(138, 109, 63, 0.3), transparent 50%),
+    radial-gradient(ellipse at 75% 80%, rgba(138, 109, 63, 0.22), transparent 45%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper) 100%);
+  color: var(--ink);
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.65;
   min-height: 100vh;
 }
 
-/* subtle drifting caustic light, ambient only */
+/* leve textura de papel: pontos de tinta desbotada */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
+  opacity: 0.5;
   background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(203,167,98,0.35) 0, transparent 60%),
-    radial-gradient(1px 1px at 80% 60%, rgba(203,167,98,0.25) 0, transparent 60%),
-    radial-gradient(1px 1px at 40% 80%, rgba(203,167,98,0.2) 0, transparent 60%),
-    radial-gradient(1px 1px at 65% 15%, rgba(203,167,98,0.3) 0, transparent 60%);
-  animation: drift 26s ease-in-out infinite alternate;
+    radial-gradient(1px 1px at 12% 22%, rgba(58,44,26,0.12) 0, transparent 60%),
+    radial-gradient(1px 1px at 82% 62%, rgba(58,44,26,0.1) 0, transparent 60%),
+    radial-gradient(1px 1px at 42% 82%, rgba(58,44,26,0.09) 0, transparent 60%),
+    radial-gradient(1px 1px at 67% 18%, rgba(58,44,26,0.11) 0, transparent 60%);
 }
 
-@keyframes drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(24px); }
+/* vinheta suave nas bordas, como um mapa antigo dobrado */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: inset 0 0 120px rgba(58, 44, 26, 0.35), inset 0 0 40px rgba(58, 44, 26, 0.15);
 }
 
-a { color: inherit; }
+a { color: var(--sea-deep); }
 
 /* ---------- Cabeçalho ---------- */
 
@@ -82,7 +89,7 @@ header {
   width: 84px;
   height: 84px;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 0 10px rgba(175, 138, 69, 0.35));
+  filter: drop-shadow(0 2px 3px rgba(58,44,26,0.25));
   animation: sway 9s ease-in-out infinite;
   transform-origin: center;
 }
@@ -97,15 +104,15 @@ header h1 {
   font-weight: 400;
   font-size: clamp(2.4rem, 6vw, 4rem);
   margin: 0 0 0.6rem;
-  color: var(--gold-bright);
-  text-shadow: 0 2px 0 rgba(0,0,0,0.4), 0 0 30px rgba(175,138,69,0.25);
+  color: var(--wax);
+  text-shadow: 0 1px 0 rgba(242,231,201,0.6);
   letter-spacing: 0.02em;
 }
 
 header p {
   max-width: 42ch;
   margin: 0 auto;
-  color: var(--parchment-shadow);
+  color: var(--ink-soft);
   font-style: italic;
   font-size: 1.15rem;
 }
@@ -116,10 +123,10 @@ nav.voyage {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: linear-gradient(180deg, var(--ocean) 0%, rgba(14,54,65,0.96) 80%, transparent 100%);
-  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, var(--paper-dark) 0%, rgba(213,192,144,0.96) 80%, transparent 100%);
+  backdrop-filter: blur(4px);
   padding: 1.1rem 1rem 1.6rem;
-  border-bottom: 1px solid rgba(175,138,69,0.25);
+  border-bottom: 1px solid rgba(147,113,47,0.35);
 }
 
 .route-wrap {
@@ -134,7 +141,7 @@ nav.voyage {
   right: 0;
   top: 50%;
   height: 0;
-  border-top: 2px dashed rgba(175,138,69,0.4);
+  border-top: 2px dashed rgba(122,59,44,0.45);
   transform: translateY(-50%);
   z-index: 0;
 }
@@ -146,7 +153,7 @@ nav.voyage {
   transform: translate(-50%, -60%) scaleX(1);
   transition: left 0.6s var(--ease);
   z-index: 2;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 2px 3px rgba(58,44,26,0.4));
   pointer-events: none;
 }
 
@@ -165,7 +172,7 @@ nav.voyage {
   appearance: none;
   border: none;
   background: none;
-  color: var(--parchment-shadow);
+  color: var(--ink-soft);
   font-family: var(--font-body);
   cursor: pointer;
   display: flex;
@@ -179,10 +186,10 @@ nav.voyage {
   min-width: 0;
 }
 
-.stop:hover { color: var(--gold-bright); }
+.stop:hover { color: var(--wax); }
 
 .stop:focus-visible {
-  outline: 2px solid var(--gold-bright);
+  outline: 2px solid var(--wax);
   outline-offset: 3px;
 }
 
@@ -192,8 +199,8 @@ nav.voyage {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--abyss-deep);
-  border: 2px solid var(--parchment-line);
+  background: var(--paper-light);
+  border: 2px solid var(--paper-stain);
   font-size: 1rem;
   transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
 }
@@ -207,15 +214,15 @@ nav.voyage {
 }
 
 .stop[aria-selected="true"] {
-  color: var(--gold-bright);
+  color: var(--wax);
 }
 
 .stop[aria-selected="true"] .stop-flag {
-  background: var(--gold);
-  border-color: var(--gold-bright);
-  color: var(--abyss-deep);
+  background: var(--wax);
+  border-color: var(--wax-bright);
+  color: var(--paper-light);
   transform: scale(1.1);
-  box-shadow: 0 0 14px rgba(203,167,98,0.55);
+  box-shadow: 0 0 0 3px rgba(122,59,44,0.18);
 }
 
 /* ---------- Conteúdo principal ---------- */
@@ -229,11 +236,11 @@ main {
 }
 
 .panel {
-  background: var(--parchment);
+  background: var(--paper-light);
   color: var(--ink);
   border-radius: var(--radius);
   padding: 2.75rem 2.25rem 2.5rem;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.4), inset 0 0 60px rgba(175, 138, 69, 0.08);
+  box-shadow: 0 14px 30px rgba(58,44,26,0.22), inset 0 0 60px rgba(147, 113, 47, 0.06);
   position: relative;
   animation: unfurl 0.5s var(--ease);
 }
@@ -245,7 +252,7 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* torn-paper edges */
+/* borda irregular, como papel rasgado */
 .panel::before,
 .panel::after {
   content: "";
@@ -254,8 +261,8 @@ main {
   right: 0;
   height: 10px;
   background-image:
-    linear-gradient(135deg, var(--abyss-deep) 6px, transparent 6px),
-    linear-gradient(-135deg, var(--abyss-deep) 6px, transparent 6px);
+    linear-gradient(135deg, var(--paper) 6px, transparent 6px),
+    linear-gradient(-135deg, var(--paper) 6px, transparent 6px);
   background-size: 16px 16px;
   background-repeat: repeat-x;
 }
@@ -266,9 +273,9 @@ main {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(1.7rem, 3.4vw, 2.2rem);
-  color: var(--rust);
+  color: var(--wax);
   margin-top: 0;
-  border-bottom: 1px solid var(--parchment-line);
+  border-bottom: 1px solid var(--paper-stain);
   padding-bottom: 0.6rem;
 }
 
@@ -279,8 +286,9 @@ main {
   border-radius: 3px;
   display: block;
   margin: 1.25rem 0 1.5rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-  border: 1px solid var(--parchment-line);
+  box-shadow: 0 6px 16px rgba(58,44,26,0.28);
+  border: 1px solid var(--paper-stain);
+  filter: sepia(0.15);
 }
 
 .panel p {
@@ -294,16 +302,16 @@ main {
 
 .log {
   margin-top: 1.5rem;
-  border-top: 1px dashed var(--parchment-line);
+  border-top: 1px dashed var(--paper-stain);
   padding-top: 1.25rem;
 }
 
 .log-note {
   appearance: none;
   cursor: pointer;
-  background: var(--abyss);
-  color: var(--gold-bright);
-  border: 1px solid var(--gold);
+  background: var(--paper-dark);
+  color: var(--ink);
+  border: 1px solid var(--brass);
   font-family: var(--font-body);
   font-size: 0.98rem;
   padding: 0.7rem 1.1rem;
@@ -314,8 +322,8 @@ main {
   transition: background 0.2s var(--ease);
 }
 
-.log-note:hover { background: var(--ocean); }
-.log-note:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+.log-note:hover { background: var(--paper-stain); }
+.log-note:focus-visible { outline: 2px solid var(--wax); outline-offset: 2px; }
 
 .log-fact {
   margin-top: 0.9rem;
@@ -323,8 +331,8 @@ main {
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.4s var(--ease), opacity 0.4s var(--ease);
-  background: rgba(110, 69, 54, 0.08);
-  border-left: 3px solid var(--rust);
+  background: rgba(122, 59, 44, 0.07);
+  border-left: 3px solid var(--wax);
   border-radius: 0 3px 3px 0;
 }
 
@@ -385,22 +393,22 @@ main {
 }
 
 .ration-front {
-  background: var(--ocean);
-  color: var(--gold-bright);
-  border: 1px solid var(--gold);
+  background: var(--sea);
+  color: var(--paper-light);
+  border: 1px solid var(--sea-deep);
 }
 
 .ration-front .ration-icon { font-size: 1.9rem; }
 
 .ration-back {
-  background: var(--rust);
-  color: var(--parchment);
+  background: var(--wax);
+  color: var(--paper-light);
   transform: rotateY(180deg);
   font-size: 0.88rem;
   line-height: 1.4;
 }
 
-.ration-card:focus-visible .ration-face { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+.ration-card:focus-visible .ration-face { outline: 2px solid var(--wax); outline-offset: 2px; }
 
 /* ---------- Galeria de armas ---------- */
 
@@ -414,8 +422,8 @@ main {
 .weapon-btn {
   appearance: none;
   cursor: pointer;
-  background: var(--abyss);
-  border: 1px solid var(--parchment-line);
+  background: var(--paper-dark);
+  border: 1px solid var(--paper-stain);
   border-radius: var(--radius);
   width: 64px;
   height: 64px;
@@ -424,21 +432,22 @@ main {
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
-.weapon-btn svg { width: 30px; height: 30px; stroke: var(--gold-bright); fill: none; }
+.weapon-btn svg { width: 30px; height: 30px; stroke: var(--ink); fill: none; }
 
-.weapon-btn:hover { transform: translateY(-3px); border-color: var(--gold); }
+.weapon-btn:hover { transform: translateY(-3px); border-color: var(--brass); }
 
 .weapon-btn[aria-pressed="true"] {
-  background: var(--rust);
-  border-color: var(--rust-bright);
+  background: var(--wax);
+  border-color: var(--wax-bright);
 }
+.weapon-btn[aria-pressed="true"] svg { stroke: var(--paper-light); }
 
-.weapon-btn:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+.weapon-btn:focus-visible { outline: 2px solid var(--wax); outline-offset: 2px; }
 
 .weapon-detail {
   min-height: 3.4em;
-  background: rgba(110, 69, 54, 0.08);
-  border-left: 3px solid var(--rust);
+  background: rgba(122, 59, 44, 0.07);
+  border-left: 3px solid var(--wax);
   border-radius: 0 3px 3px 0;
   padding: 0.9rem 1rem;
   font-style: italic;
@@ -450,8 +459,8 @@ main {
 .map {
   margin-top: 1.75rem;
   position: relative;
-  background: var(--parchment-shadow);
-  border: 1px dashed var(--ink-soft);
+  background: var(--paper-dark);
+  border: 1px dashed var(--brass);
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
   text-align: center;
@@ -471,18 +480,18 @@ main {
   font-size: 2.4rem;
   line-height: 1;
   padding: 0.5rem;
-  color: var(--rust);
+  color: var(--wax);
   transition: transform 0.2s var(--ease);
   animation: pulse-x 1.8s ease-in-out infinite;
 }
 
 .dig-spot:hover { transform: scale(1.15); }
-.dig-spot:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
+.dig-spot:focus-visible { outline: 2px solid var(--wax); outline-offset: 3px; }
 .dig-spot.found { animation: none; }
 
 @keyframes pulse-x {
-  0%, 100% { text-shadow: 0 0 0 rgba(110,69,54,0); }
-  50% { text-shadow: 0 0 14px rgba(110,69,54,0.55); }
+  0%, 100% { text-shadow: 0 0 0 rgba(122,59,44,0); }
+  50% { text-shadow: 0 0 12px rgba(122,59,44,0.45); }
 }
 
 .treasure-reveal {
@@ -524,9 +533,9 @@ footer {
   z-index: 1;
   text-align: center;
   padding: 2.5rem 1rem 3rem;
-  color: var(--parchment-shadow);
+  color: var(--ink-soft);
   font-size: 0.9rem;
-  border-top: 1px solid rgba(175,138,69,0.2);
+  border-top: 1px solid rgba(147,113,47,0.3);
 }
 
 /* ---------- Responsivo ---------- */

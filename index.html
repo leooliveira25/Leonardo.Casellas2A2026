@@ -4,45 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trabalho escolar sobre a história dos piratas, sua vida a bordo, armas e lendas.">
- 
+
     <title>Piratas e Pirataria</title>
- 
+
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.ico">
- 
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
- 
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
+
     <!-- Cabeçalho -->
     <header>
         <svg class="compass" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="50" cy="50" r="46" fill="none" stroke="#c9a227" stroke-width="1.5"/>
-            <circle cx="50" cy="50" r="38" fill="none" stroke="#c9a227" stroke-width="0.75"/>
-            <g fill="#e0bb3f">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#93712f" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#93712f" stroke-width="0.75"/>
+            <g fill="#7a3b2c">
                 <polygon points="50,6 56,50 50,44 44,50"/>
                 <polygon points="50,94 56,50 50,56 44,50"/>
                 <polygon points="6,50 50,44 44,50 50,56"/>
                 <polygon points="94,50 50,44 56,50 50,56"/>
             </g>
-            <g fill="#e9d9ab" opacity="0.8">
+            <g fill="#b3893f" opacity="0.85">
                 <polygon points="22,22 48,44 44,48"/>
                 <polygon points="78,78 52,56 56,52"/>
                 <polygon points="78,22 56,48 52,44"/>
                 <polygon points="22,78 44,52 48,56"/>
             </g>
-            <circle cx="50" cy="50" r="4" fill="#c9a227"/>
+            <circle cx="50" cy="50" r="4" fill="#93712f"/>
         </svg>
         <h1>🏴‍☠️ Piratas e Pirataria</h1>
         <p>Siga a rota no mapa abaixo e navegue pela história, os mistérios e as aventuras dos navegadores mais temidos dos mares.</p>
     </header>
- 
+
     <!-- Navegação em forma de rota de viagem -->
     <nav class="voyage" aria-label="Rota pelo mapa do conteúdo">
         <div class="route-wrap">
@@ -76,20 +76,20 @@
             </ul>
         </div>
     </nav>
- 
+
     <!-- Conteúdo Principal -->
     <main>
- 
+
         <!-- Era de Ouro -->
         <section id="era-de-ouro" class="panel" role="tabpanel" aria-labelledby="tab-era" tabindex="0">
             <h2>⚓ A Era de Ouro da Pirataria</h2>
- 
+
             <img
                 src="img/era-de-ouro.jpeg"
                 alt="Navio pirata navegando durante a Era de Ouro da Pirataria"
                 width="700"
             >
- 
+
             <p>
                 A Era de Ouro da Pirataria foi um período que ocorreu aproximadamente
                 entre 1650 e 1730, quando os piratas dominaram diversas rotas marítimas
@@ -112,7 +112,7 @@
                 passaram a combater os piratas com maior eficiência, tornando os
                 mares mais seguros para o comércio.
             </p>
- 
+
             <div class="log">
                 <button class="log-note" data-facts="era" aria-expanded="false">📜 Abrir o diário de bordo</button>
                 <div class="log-fact" id="fact-era">
@@ -120,17 +120,17 @@
                 </div>
             </div>
         </section>
- 
+
         <!-- Vida a Bordo -->
         <section id="vida-bordo" class="panel" role="tabpanel" aria-labelledby="tab-vida" tabindex="0" hidden>
             <h2>🚢 Vida a Bordo de um Navio Pirata</h2>
- 
+
             <img
                 src="img/vida-bordo.jpeg"
                 alt="Tripulação em um navio pirata"
                 width="700"
             >
- 
+
             <p>
                 Viver em um navio pirata estava longe de ser o conforto que muitos
                 filmes mostram. Os tripulantes passavam semanas ou até meses no mar,
@@ -152,7 +152,7 @@
                 qualquer entretenimento moderno certamente exigia muita paciência de
                 todos os envolvidos.
             </p>
- 
+
             <div class="rations">
                 <button class="ration-card" aria-label="Virar carta: biscoito">
                     <div class="ration-inner">
@@ -174,17 +174,17 @@
                 </button>
             </div>
         </section>
- 
+
         <!-- Armas -->
         <section id="armas" class="panel" role="tabpanel" aria-labelledby="tab-armas" tabindex="0" hidden>
             <h2>🗡️ Armas e Estratégias dos Piratas</h2>
- 
+
             <img
                 src="img/armas-piratas.jpeg"
                 alt="Espada pirata apoiada em um barril no convés de um navio em alto-mar"
                 width="700"
             >
- 
+
             <p>
                 Os piratas utilizavam diversas armas para realizar seus ataques.
                 Entre as mais comuns estavam espadas, pistolas de pederneira, facas
@@ -205,7 +205,7 @@
                 cuidadosamente seus alvos. Dessa forma, aumentavam as chances de
                 sucesso e reduziam os riscos durante os confrontos.
             </p>
- 
+
             <div class="armory" role="group" aria-label="Escolha uma arma para saber mais">
                 <button class="weapon-btn" data-weapon="espada" aria-pressed="false" aria-label="Espada">
                     <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -240,17 +240,17 @@
                 Toque em uma arma acima para conhecer seu uso a bordo.
             </div>
         </section>
- 
+
         <!-- Tesouros -->
         <section id="tesouros" class="panel" role="tabpanel" aria-labelledby="tab-tesouros" tabindex="0" hidden>
             <h2>💰 Tesouros e Lendas Piratas</h2>
- 
+
             <img
                 src="img/tesouro-pirata.jpeg"
                 alt="Baú de tesouro pirata cheio de moedas de ouro"
                 width="700"
             >
- 
+
             <p>
                 Os tesouros escondidos são uma das imagens mais famosas associadas
                 aos piratas. Graças a livros, filmes e histórias populares, muitas
@@ -274,7 +274,7 @@
                 Embora as chances sejam pequenas, a imaginação continua navegando
                 pelos mares da fantasia.
             </p>
- 
+
             <div class="map">
                 <p class="map-hint">A lenda diz que há algo enterrado bem aqui. Cave e descubra.</p>
                 <button class="dig-spot" id="digSpot" aria-expanded="false">✕</button>
@@ -284,23 +284,23 @@
                 </div>
             </div>
         </section>
- 
+
     </main>
- 
+
     <!-- Rodapé -->
     <footer>
         <p>
             Trabalho Escolar - Piratas e Pirataria | Desenvolvido por Leo Oliveira
         </p>
     </footer>
- 
+
     <script>
         // ---------- Navegação por abas (rota da viagem) ----------
         const tabs = Array.from(document.querySelectorAll('.stop'));
         const panels = Array.from(document.querySelectorAll('.panel'));
         const shipMarker = document.getElementById('shipMarker');
         const routeWrap = document.querySelector('.route-wrap');
- 
+
         function positionShip(activeTab) {
             if (!activeTab || window.innerWidth <= 640) return;
             const wrapRect = routeWrap.getBoundingClientRect();
@@ -309,7 +309,7 @@
             const left = flagRect.left - wrapRect.left + flagRect.width / 2;
             shipMarker.style.left = left + 'px';
         }
- 
+
         function activateTab(tab, { focus = false } = {}) {
             tabs.forEach((t) => {
                 const selected = t === tab;
@@ -323,7 +323,7 @@
             if (focus) tab.focus();
             history.replaceState(null, '', '#' + tab.getAttribute('aria-controls'));
         }
- 
+
         tabs.forEach((tab) => {
             tab.addEventListener('click', () => activateTab(tab));
             tab.addEventListener('keydown', (e) => {
@@ -337,18 +337,18 @@
                 }
             });
         });
- 
+
         window.addEventListener('resize', () => {
             const current = tabs.find((t) => t.getAttribute('aria-selected') === 'true');
             positionShip(current);
         });
- 
+
         // abre a aba certa se a página carregar com um #hash
         const initialHash = window.location.hash.replace('#', '');
         const initialTab = tabs.find((t) => t.getAttribute('aria-controls') === initialHash);
         window.addEventListener('load', () => positionShip(initialTab || tabs[0]));
         if (initialTab) activateTab(initialTab);
- 
+
         // ---------- Diário de bordo: fatos da Era de Ouro ----------
         const eraFacts = [
             'Muitos navios piratas hasteavam bandeiras diferentes até o último momento do ataque, só revelando a Jolly Roger quando já estavam perto o suficiente para intimidar.',
@@ -370,12 +370,12 @@
                 logBtn.textContent = '📜 Abrir o diário de bordo';
             }
         });
- 
+
         // ---------- Cartas de ração ----------
         document.querySelectorAll('.ration-card').forEach((card) => {
             card.addEventListener('click', () => card.classList.toggle('flipped'));
         });
- 
+
         // ---------- Galeria de armas ----------
         const weaponInfo = {
             espada: 'A espada era a arma mais usada no combate corpo a corpo, ideal para os espaços apertados do convés de um navio.',
@@ -392,7 +392,7 @@
                 weaponDetail.textContent = weaponInfo[btn.dataset.weapon];
             });
         });
- 
+
         // ---------- Mapa do tesouro ----------
         const digSpot = document.getElementById('digSpot');
         const treasureReveal = document.getElementById('treasureReveal');
@@ -402,7 +402,7 @@
             digSpot.classList.toggle('found', isOpen);
             digSpot.textContent = isOpen ? '⛏️' : '✕';
         });
- 
+
         // ---------- Revela as seções suavemente (mantido do original) ----------
         const secoes = document.querySelectorAll('main section');
         const observador = new IntersectionObserver((entradas) => {
@@ -414,7 +414,6 @@
         }, { threshold: 0.15 });
         secoes.forEach((secao) => observador.observe(secao));
     </script>
- 
+
 </body>
 </html>
- 
